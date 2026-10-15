@@ -3,7 +3,7 @@ using UnityEngine.InputSystem;
 using TMPro;
 public class KeyPickup : MonoBehaviour
 {
-    [Header("UI")]
+    [Header("Pickup UI")]
     public TMP_Text pickupPrompt;
     private bool playerNearby = false;
     void Start()
@@ -29,6 +29,7 @@ public class KeyPickup : MonoBehaviour
             playerNearby = true;
             if (pickupPrompt != null)
             {
+                pickupPrompt.text = "Press R to Pick Up Key";
                 pickupPrompt.gameObject.SetActive(true);
             }
         }
@@ -47,6 +48,16 @@ public class KeyPickup : MonoBehaviour
     void PickUpKey()
     {
         Debug.Log("Key picked up!");
+        if (KeyCounter.Instance != null)
+        {
+            KeyCounter.Instance.AddKey();
+        }
+        else
+        {
+            Debug.LogWarning(
+                "KeyCounter not found! Make sure KeyCounterManager is in the scene."
+            );
+        }
         if (pickupPrompt != null)
         {
             pickupPrompt.gameObject.SetActive(false);

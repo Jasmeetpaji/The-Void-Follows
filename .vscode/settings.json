@@ -67,5 +67,5 @@
         "*.sln": "*.csproj",
         "*.slnx": "*.csproj"
     },
-    "dotnet.defaultSolution": "The-Void-Follows.slnx"
+    "dotnet.defaultSolution": "The Void Follows.slnx"
 }
