@@ -12,6 +12,10 @@ public class MouseLook : MonoBehaviour
     private float verticalRotation = 0f;
     void Start()
     {
+        mouseSensitivity = PlayerPrefs.GetFloat(
+            "MouseSensitivity",
+            0.15f
+        );
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
     }
@@ -19,30 +23,21 @@ public class MouseLook : MonoBehaviour
     {
         if (Mouse.current == null)
             return;
-        Vector2 mouseDelta =
-            Mouse.current.delta.ReadValue();
-        float mouseX =
-            mouseDelta.x * mouseSensitivity;
-        float mouseY =
-            mouseDelta.y * mouseSensitivity;
+        Vector2 mouseDelta = Mouse.current.delta.ReadValue();
+        float mouseX = mouseDelta.x * mouseSensitivity;
+        float mouseY = mouseDelta.y * mouseSensitivity;
         verticalRotation -= mouseY;
-        verticalRotation =
-            Mathf.Clamp(
-                verticalRotation,
-                minLookAngle,
-                maxLookAngle
-            );
-        transform.localRotation =
-            Quaternion.Euler(
-                verticalRotation,
-                0f,
-                0f
-            );
+        verticalRotation = Mathf.Clamp(
+            verticalRotation,
+            minLookAngle,
+            maxLookAngle
+        );
+        transform.localRotation = Quaternion.Euler(
+            verticalRotation, 0f, 0f
+        );
         if (playerBody != null)
         {
-            playerBody.Rotate(
-                Vector3.up * mouseX
-            );
+            playerBody.Rotate(Vector3.up * mouseX);
         }
     }
 }
