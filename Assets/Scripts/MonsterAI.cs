@@ -23,6 +23,7 @@ public class MonsterAI : MonoBehaviour
     private int currentPatrolPoint = 0;
 
     private bool chasing = false;
+    public bool IsChasing => chasing;
     private Vector3 lastSeenPosition;
     private float lastSeenTime;
 
