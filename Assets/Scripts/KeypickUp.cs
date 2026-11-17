@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using TMPro;
 public class KeyPickup : MonoBehaviour
-{
+{   
     [Header("Pickup UI")]
     public TMP_Text pickupPrompt;
     private bool playerNearby = false;
@@ -45,6 +45,7 @@ public class KeyPickup : MonoBehaviour
             }
         }
     }
+    
     void PickUpKey()
     {
         Debug.Log("Key picked up!");
