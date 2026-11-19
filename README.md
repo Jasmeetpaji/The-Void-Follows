@@ -42,7 +42,7 @@ But something is wrong,avoid the beast lurking through the hallways,uncover secr
 7. Git and GitHub
 
 ### Installing 
-you can download the version of the game available on itch.io!: 
+you can download the version of the game available on itch.io!: https://jasmeetsingh.itch.io/the-void-follows
 
 ### Executing the program 
 1. Once the folder is downloaded,extract the zip file onto your computer
